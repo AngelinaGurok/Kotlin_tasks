@@ -1,4 +1,4 @@
-package tests.kotlin_as_first
+package tests.kotlin_as_first.lesson1
 
 import kotlin_as_first.lesson1.*
 import org.junit.jupiter.api.Assertions.assertEquals

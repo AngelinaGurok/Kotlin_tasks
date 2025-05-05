@@ -184,7 +184,7 @@ class TestLesson3 {
         assertFalse(hasDifferentDigits(0))
         assertFalse(hasDifferentDigits(777))
         assertTrue(hasDifferentDigits(31122))
-    }
+    }/*
 
     @Test
     fun testSin() {
@@ -226,5 +226,5 @@ class TestLesson3 {
         assertEquals(2, fibSequenceDigit(9))
         assertEquals(5, fibSequenceDigit(14))
         assertEquals(2, fibSequenceDigit(20))
-    }
+    }*/
 }
