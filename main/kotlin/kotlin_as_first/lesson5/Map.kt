@@ -110,12 +110,7 @@ fun containsIn(a: Map<String, String>, b: Map<String, String>): Boolean {
  *   subtractOf(a = mutableMapOf("a" to "z"), mapOf("a" to "z"))
  *     -> a changes to mutableMapOf() aka becomes empty
  */
-fun main(){
-    val from = mutableMapOf("a" to "z", "b" to "c")
-    println(from)
-    subtractOf(from, mapOf("a" to "z"))
-    println(from)
-}
+
 fun subtractOf(a: MutableMap<String, String>, b: Map<String, String>) {
         for((key, value ) in b){
         if(a[key] == b[key]){
@@ -233,7 +228,14 @@ fun findCheapestStuff(stuff: Map<String, Pair<String, Double>>, kind: String): S
  * Например:
  *   canBuildFrom(listOf('a', 'b', 'o'), "baobab") -> true
  */
-fun canBuildFrom(chars: List<Char>, word: String): Boolean = TODO()
+fun canBuildFrom(chars: List<Char>, word: String): Boolean {
+    for(i in word.indices){
+        if(!chars.contains(word[i])){
+            return false
+        }
+    }
+    return true
+}
 
 /**
  * Средняя (4 балла)
@@ -282,7 +284,22 @@ fun extractRepeats(list: List<String>): Map<String, Int> {
  * Например:
  *   hasAnagrams(listOf("тор", "свет", "рот")) -> true
  */
-fun hasAnagrams(words: List<String>): Boolean = TODO()
+fun main(){
+    println(hasAnagrams(listOf("рот", "свет", "код", "дверь")))
+}
+fun hasAnagrams(words: List<String>): Boolean {
+    val characters = mutableListOf<Char>()
+    for(i in 0 until words.size - 1){
+        for(j in words[i].indices){
+            characters.add(words[i][j])
+        }
+        for(j in i + 1 until words.size){
+            if(canBuildFrom(characters, words[j]) && characters.size == words[j].length) return true
+        }
+        characters.clear()
+    }
+    return false
+}
 
 /**
  * Сложная (5 баллов)
